@@ -416,8 +416,20 @@ public class arrayOne {
     // make2({}, {1, 2}) → {1, 2}
 
     public int[] make2(int[] a, int[] b) {
-
+    	int[] newArr = new int[2];
+    	if(a.length > 1){
+    		newArr[0] = a[0];
+    		newArr[1] = a[1];
+    	} else if(a.length > 0){
+    		newArr[0] = a[0];
+    		newArr[1] = b[0];
+    	} else{
+    		newArr[0] = b[0];
+    		newArr[1] = b[1];
+    	}
+    	return newArr;
     }
+
 
 
 }
