@@ -438,18 +438,23 @@ public class arrayOne {
     // front11({1, 7}, {}) → {1}
 
     public int[] front11(int[] a, int[] b) {
-    	int[] newArr = new int[2];
-    	if(a.length < 1){
-    		newArr[0] = b[0];
-    		del newArr[1];
-    	} else if(b.length < 1){
-    		newArr[0] = a[0];
-    		del newArr[1];
-    	} else {
-    		newArr[0] = a[0];
-    		newArr[1] = b[0];
-    	}
-    	return newArr;
+        int[] oneArr = new int[1];
+        int[] twoArr = new int[2];
+        int[] newArr = new int[0];
+
+        if (a.length < 1 && b.length > 1) {
+            oneArr[0] = b[0];
+            return oneArr;
+        } else if (b.length < 1 && a.length > 1) {
+            oneArr[0] = a[0];
+            return oneArr;
+        } else if (a.length >= 1 && b.length >= 1) {
+            twoArr[0] = a[0];
+            twoArr[1] = b[0];
+            return twoArr;
+        } else {
+            return newArr;
+        }
     }
 
 
