@@ -375,16 +375,15 @@ public class arrayTwo {
     // twoTwo({2, 2, 4}) → true
     // twoTwo({2, 2, 4, 2}) → false
 
-	public boolean twoTwo(int[] nums) {
+    public boolean twoTwo(int[] nums) {
         boolean hasTwo = true;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == 2) {
-                if ((i != 0 && nums[i - 1] == 2) || (nums.length-1 > i && nums[i + 1] == 2 )) {
+                if ((i != 0 && nums[i - 1] == 2) || (nums.length - 1 > i && nums[i + 1] == 2 )) {
                     hasTwo = true;
                     i++;
                 } else {
                     hasTwo = false;
-                    break;
                 }
             }
         }
@@ -392,15 +391,182 @@ public class arrayTwo {
     }
 
 
-// Return true if the group of N numbers at the start and end of the array are the same. For example, with {5, 6, 45, 99, 13, 5, 6}, the ends are the same for n=0 and n=2, and false for n=1 and n=3. You may assume that n is in the range 0..nums.length inclusive. 
+    // Return true if the group of N numbers at the start and end of the array are the same. For example, with {5, 6, 45, 99, 13, 5, 6}, the ends are the same for n=0 and n=2, and false for n=1 and n=3. You may assume that n is in the range 0..nums.length inclusive.
 
-// sameEnds({5, 6, 45, 99, 13, 5, 6}, 1) → false
-// sameEnds({5, 6, 45, 99, 13, 5, 6}, 2) → true
-// sameEnds({5, 6, 45, 99, 13, 5, 6}, 3) → false
+    // sameEnds({5, 6, 45, 99, 13, 5, 6}, 1) → false
+    // sameEnds({5, 6, 45, 99, 13, 5, 6}, 2) → true
+    // sameEnds({5, 6, 45, 99, 13, 5, 6}, 3) → false
 
-public boolean sameEnds(int[] nums, int len) {
-  
-}
+    public boolean sameEnds(int[] nums, int len) {
+        boolean same = true;
+        for (int i = 0; i < len; i++) {
+            if (nums[i] != nums[nums.length - len + i]) {
+                same = false;
+            }
+        }
+        return same;
+    }
+
+
+    // Return true if the array contains, somewhere, three increasing adjacent numbers like .... 4, 5, 6, ... or 23, 24, 25.
+
+    // tripleUp({1, 4, 5, 6, 2}) → true
+    // tripleUp({1, 2, 3}) → true
+    // tripleUp({1, 2, 4}) → false
+
+    public boolean tripleUp(int[] nums) {
+        boolean triple = false;
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (nums[i] < nums[i + 1] && nums[i + 1] < nums[i + 2] && 1 == Math.abs(nums[i + 1] - nums[i]) && 2 == Math.abs(nums[i + 2] - nums[i])) {
+                triple = true;
+            }
+        }
+        return triple;
+    }
+
+
+    // Given start and end numbers, return a new array containing the sequence of integers from start up to but not including end, so start=5 and end=10 yields {5, 6, 7, 8, 9}. The end number will be greater or equal to the start number. Note that a length-0 array is valid. (See also: FizzBuzz Code)
+
+    // fizzArray3(5, 10) → {5, 6, 7, 8, 9}
+    // fizzArray3(11, 18) → {11, 12, 13, 14, 15, 16, 17}
+    // fizzArray3(1, 3) → {1, 2}
+
+    public int[] fizzArray3(int start, int end) {
+        int[] newArr = new int[end - start];
+        for (int i = 0; start < end; i++) {
+            newArr[i] = start++;
+        }
+        return newArr;
+    }
+
+
+    // Return an array that is "left shifted" by one -- so {6, 2, 5, 3} returns {2, 5, 3, 6}. You may modify and return the given array, or return a new array.
+
+    // shiftLeft({6, 2, 5, 3}) → {2, 5, 3, 6}
+    // shiftLeft({1, 2}) → {2, 1}
+    // shiftLeft({1}) → {1}
+
+    public int[] shiftLeft(int[] nums) {
+        int shift = 0;
+        if (0 < nums.length) {
+            shift = nums[0];
+        }
+
+        for (int i = 0; i < nums.length - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
+
+        if (0 < nums.length) {
+            nums[nums.length - 1] = shift;
+        }
+
+        return nums;
+    }
+
+
+    // For each multiple of 10 in the given array, change all the values following it to be that multiple of 10, until encountering another multiple of 10. So {2, 10, 3, 4, 20, 5} yields {2, 10, 10, 10, 20, 20}.
+
+    // tenRun({2, 10, 3, 4, 20, 5}) → {2, 10, 10, 10, 20, 20}
+    // tenRun({10, 1, 20, 2}) → {10, 10, 20, 20}
+    // tenRun({10, 1, 9, 20}) → {10, 10, 10, 20}
+
+    public int[] tenRun(int[] nums) {
+        if (nums.length < 1) {
+            return nums;
+        }
+
+        int runner = nums[0];
+        for (int i = 0; i < nums.length; i++) {
+            if (runner % 10 != 0) {
+                runner = nums[i];
+            }
+            if (nums[i] % 10 == 0) {
+                runner = nums[i];
+            }
+            nums[i] = runner;
+        }
+        return nums;
+    }
+
+
+    // Given a non-empty array of ints, return a new array containing the elements from the original array that come before the first 4 in the original array. The original array will contain at least one 4. Note that it is valid in java to create an array of length 0.
+
+    // pre4({1, 2, 4, 1}) → {1, 2}
+    // pre4({3, 1, 4}) → {3, 1}
+    // pre4({1, 4, 4}) → {1}
+
+    public int[] pre4(int[] nums) {
+        int size = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 4) {
+                size++;
+            } else {
+                break;
+            }
+        }
+
+        int[] newArr = new int[size];
+        for (int i = 0; i < size; i++) {
+            newArr[i] = nums[i];
+        }
+
+        return newArr;
+    }
+
+
+    // Given a non-empty array of ints, return a new array containing the elements from the original array that come after the last 4 in the original array. The original array will contain at least one 4. Note that it is valid in java to create an array of length 0.
+
+    // post4({2, 4, 1, 2}) → {1, 2}
+    // post4({4, 1, 4, 2}) → {2}
+    // post4({4, 4, 1, 2, 3}) → {1, 2, 3}
+
+    public int[] post4(int[] nums) {
+        int size = 0;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            if (nums[i] == 4) {
+                size = nums.length - 1 - i;
+                break;
+            }
+        }
+
+        int[] newArr = new int[size];
+        for (int i = 0; i < size; i++) {
+            newArr[i] = nums[nums.length - size + i];
+        }
+
+        return newArr;
+    }
+
+    // We'll say that an element in an array is "alone" if there are values before and after it, and those values are different from it. Return a version of the given array where every instance of the given value which is alone is replaced by whichever value to its left or right is larger.
+
+    // notAlone({1, 2, 3}, 2) → {1, 3, 3}
+    // notAlone({1, 2, 3, 2, 5, 2}, 2) → {1, 3, 3, 5, 5, 2}
+    // notAlone({3, 4}, 3) → {3, 4}
+
+    public int[] notAlone(int[] nums, int val) {
+        if (nums.length < 3) {
+            return nums;
+        }
+
+        for (int i = 1; i < nums.length - 1; i++) {
+            if (nums[i] == val && nums[i - 1] != val && nums[i + 1] != val) {
+                nums[i] = Math.max(nums[i - 1], nums[i + 1]);
+            }
+        }
+
+        return nums;
+    }
+
+
+    // Return an array that contains the exact same numbers as the given array, but rearranged so that all the zeros are grouped at the start of the array. The order of the non-zero numbers does not matter. So {1, 0, 0, 1} becomes {0 ,0, 1, 1}. You may modify and return the given array or make a new array.
+
+    // zeroFront({1, 0, 0, 1}) → {0, 0, 1, 1}
+    // zeroFront({0, 1, 1, 0, 1}) → {0, 0, 1, 1, 1}
+    // zeroFront({1, 0}) → {0, 1}
+
+    public int[] zeroFront(int[] nums) {
+
+    }
 
 
 }
