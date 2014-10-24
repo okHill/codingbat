@@ -174,6 +174,161 @@ public class arrayTwo {
         return (oneCount > fourCount);
     }
 
+    // Given a number n, create and return a new int array of length n, containing the numbers 0, 1, 2, ... n-1. The given n may be 0, in which case just return a length 0 array. You do not need a separate if-statement for the length-0 case; the for-loop should naturally execute 0 times in that case, so it just works. The syntax to make a new int array is: new int[desired_length]   (See also: FizzBuzz Code)
+
+    // fizzArray(4) → {0, 1, 2, 3}
+    // fizzArray(1) → {0}
+    // fizzArray(10) → {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+    public int[] fizzArray(int n) {
+        int[] newArr = new int[n];
+        for (int i = 0; i < n; i++) {
+            newArr[i] = i;
+        }
+        return newArr;
+    }
+
+    // Given an array of ints, return true if every element is a 1 or a 4.
+
+    // only14({1, 4, 1, 4}) → true
+    // only14({1, 4, 2, 4}) → false
+    // only14({1, 1}) → true
+
+    public boolean only14(int[] nums) {
+        boolean onefour = true;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 1 && nums[i] != 4) {
+                onefour = false;
+            }
+        }
+        return onefour;
+    }
+
+
+    // Given a number n, create and return a new string array of length n, containing the strings "0", "1" "2" .. through n-1. N may be 0, in which case just return a length 0 array. Note: String.valueOf(xxx) will make the String form of most types. The syntax to make a new string array is: new String[desired_length]  (See also: FizzBuzz Code)
+
+    // fizzArray2(4) → {"0", "1", "2", "3"}
+    // fizzArray2(10) → {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}
+    // fizzArray2(2) → {"0", "1"}
+
+    public String[] fizzArray2(int n) {
+        String[] newArr = new String[n];
+        for (int i = 0; i < n; i++) {
+            newArr[i] = i;
+        }
+        return newArr;
+    }
+
+    // Given an array of ints, return true if it contains no 1's or it contains no 4's.
+
+    // no14({1, 2, 3}) → true
+    // no14({1, 2, 3, 4}) → false
+    // no14({2, 3, 4}) → true
+
+    public boolean no14(int[] nums) {
+        boolean one = false;
+        boolean four = false;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                one = true;
+            } else if (nums[i] == 4) {
+                four = true;
+            }
+        }
+        return one || four;
+    }
+
+
+    // We'll say that a value is "everywhere" in an array if for every pair of adjacent elements in the array, at least one of the pair is that value. Return true if the given value is everywhere in the array.
+
+    // isEverywhere({1, 2, 1, 3}, 1) → true
+    // isEverywhere({1, 2, 1, 3}, 2) → false
+    // isEverywhere({1, 2, 1, 3, 4}, 1) → false
+
+    public boolean isEverywhere(int[] nums, int val) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (!(nums[i] == val || nums[i + 1] == val)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    // Given an array of ints, return true if the array contains a 2 next to a 2 or a 4 next to a 4, but not both.
+
+    // either24({1, 2, 2}) → true
+    // either24({4, 4, 1}) → true
+    // either24({4, 4, 1, 2, 2}) → false
+
+    public boolean either24(int[] nums) {
+        boolean two = false;
+        boolean four = false;
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == 2 && nums[i + 1] == 2) {
+                two = true;
+            } else if (nums[i] == 4 && nums[i + 1] == 4) {
+                four = true;
+            }
+        }
+        return two ^ four;
+    }
+
+
+    // Given arrays nums1 and nums2 of the same length, for every element in nums1, consider the corresponding element in nums2 (at the same index). Return the count of the number of times that the two elements differ by 2 or less, but are not equal.
+
+    // matchUp({1, 2, 3}, {2, 3, 10}) → 2
+    // matchUp({1, 2, 3}, {2, 3, 5}) → 3
+    // matchUp({1, 2, 3}, {2, 3, 3}) → 2
+
+    public int matchUp(int[] nums1, int[] nums2) {
+        int count = 0;
+        for (int i = 0; i < nums1.length; i++) {
+            if (Math.abs(nums2[i] - nums1[i]) <= 2 && Math.abs(nums2[i] - nums1[i]) != 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+
+    // Given an array of ints, return true if the array contains two 7's next to each other, or there are two 7's separated by one element, such as with {7, 1, 7}.
+
+    // has77({1, 7, 7}) → true
+    // has77({1, 7, 1, 7}) → true
+    // has77({1, 7, 1, 1, 7}) → false
+
+    public boolean has77(int[] nums) {
+        for (int i = 0; i <= nums.length - 2; i++) {
+            if (nums[i] == 7 && nums[i + 1] == 7) {
+                return true;
+            }
+            if (i < nums.length - 2 && (nums[i] == 7 && nums[i + 2] == 7)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    // Given an array of ints, return true if there is a 1 in the array with a 2 somewhere later in the array.
+
+    // has12({1, 3, 2}) → true
+    // has12({3, 1, 2}) → true
+    // has12({3, 1, 4, 5, 2}) → true
+
+    public boolean has12(int[] nums) {
+    	boolean hasOne = false;
+    	boolean hasTwo = false;
+    	for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                hasOne = true;
+            } else if (nums[i] == 2) {
+                hasTwo = true;
+            }
+        }
+        return hasOne || hasTwo;
+    }
 
 
 }
