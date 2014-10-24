@@ -360,14 +360,47 @@ public class arrayTwo {
     // haveThree({3, 4, 3, 3, 4}) → false
 
     public boolean haveThree(int[] nums) {
-    	int count = 0;
-    	for (int i = 0; i < nums.length-2; i++) {
+        int count = 0;
+        for (int i = 0; i < nums.length - 2; i++) {
             if (nums[i] == 3 && nums[i + 2] == 3) {
                 count++;
             }
         }
         return count == 2;
     }
+
+    // Given an array of ints, return true if every 2 that appears in the array is next to another 2.
+
+    // twoTwo({4, 2, 2, 3}) → true
+    // twoTwo({2, 2, 4}) → true
+    // twoTwo({2, 2, 4, 2}) → false
+
+	public boolean twoTwo(int[] nums) {
+        boolean hasTwo = true;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 2) {
+                if ((i != 0 && nums[i - 1] == 2) || (nums.length-1 > i && nums[i + 1] == 2 )) {
+                    hasTwo = true;
+                    i++;
+                } else {
+                    hasTwo = false;
+                    break;
+                }
+            }
+        }
+        return hasTwo;
+    }
+
+
+// Return true if the group of N numbers at the start and end of the array are the same. For example, with {5, 6, 45, 99, 13, 5, 6}, the ends are the same for n=0 and n=2, and false for n=1 and n=3. You may assume that n is in the range 0..nums.length inclusive. 
+
+// sameEnds({5, 6, 45, 99, 13, 5, 6}, 1) → false
+// sameEnds({5, 6, 45, 99, 13, 5, 6}, 2) → true
+// sameEnds({5, 6, 45, 99, 13, 5, 6}, 3) → false
+
+public boolean sameEnds(int[] nums, int len) {
+  
+}
 
 
 }
