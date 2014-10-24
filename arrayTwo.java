@@ -318,16 +318,31 @@ public class arrayTwo {
     // has12({3, 1, 4, 5, 2}) → true
 
     public boolean has12(int[] nums) {
-    	boolean hasOne = false;
-    	boolean hasTwo = false;
-    	for (int i = 0; i < nums.length; i++) {
+        boolean hasOne = false;
+        boolean hasTwo = false;
+        for (int i = 0; i < nums.length; i++) {
             if (nums[i] == 1) {
                 hasOne = true;
-            } else if (nums[i] == 2) {
+                while (nums[i] != 2 && i != nums.length - 1) {
+                    i++;
+                }
+            }
+
+            if (hasOne && nums[i] == 2) {
                 hasTwo = true;
             }
         }
-        return hasOne || hasTwo;
+        return hasOne && hasTwo;
+    }
+
+    // Given an array of ints, return true if the array contains either 3 even or 3 odd values all next to each other.
+
+    // modThree({2, 1, 3, 5}) → true
+    // modThree({2, 1, 2, 5}) → false
+    // modThree({2, 4, 2, 5}) → true
+
+    public boolean modThree(int[] nums) {
+    	
     }
 
 
