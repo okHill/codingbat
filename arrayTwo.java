@@ -565,7 +565,100 @@ public class arrayTwo {
     // zeroFront({1, 0}) → {0, 1}
 
     public int[] zeroFront(int[] nums) {
+        int zero = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                continue;
+            }
+            nums[i] = nums[zero];
+            nums[zero++] = 0;
+        }
 
+        return nums;
+    }
+
+
+    // Return a version of the given array where all the 10's have been removed. The remaining elements should shift left towards the start of the array as needed, and the empty spaces a the end of the array should be 0. So {1, 10, 10, 2} yields {1, 2, 0, 0}. You may modify and return the given array or make a new array.
+
+    // withoutTen({1, 10, 10, 2}) → {1, 2, 0, 0}
+    // withoutTen({10, 2, 10}) → {2, 0, 0}
+    // withoutTen({1, 99, 10}) → {1, 99, 0}
+
+    public int[] withoutTen(int[] nums) {
+        int[] newArr = new int[nums.length];
+        int nonzero = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 10) {
+                newArr[nonzero++] = nums[i];
+            }
+        }
+        return newArr;
+    }
+
+    // Return a version of the given array where each zero value in the array is replaced by the largest odd value to the right of the zero in the array. If there is no odd value to the right of the zero, leave the zero as a zero.
+
+    // zeroMax({0, 5, 0, 3}) → {5, 5, 3, 3}
+    // zeroMax({0, 4, 0, 3}) → {3, 4, 3, 3}
+    // zeroMax({0, 1, 0}) → {1, 1, 0}
+
+    public int[] zeroMax(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0) {
+                int max = 0;
+                for (int j = i + 1; j < nums.length; j++) {
+                    if (max < nums[j] && nums[j] % 2 != 0) {
+                        max = nums[j];
+                    }
+                }
+                nums[i] = max;
+            }
+        }
+        return nums;
+    }
+
+    // Return an array that contains the exact same numbers as the given array, but rearranged so that all the even numbers come before all the odd numbers. Other than that, the numbers can be in any order. You may modify and return the given array, or make a new array.
+
+    // evenOdd({1, 0, 1, 0, 0, 1, 1}) → {0, 0, 0, 1, 1, 1, 1}
+    // evenOdd({3, 3, 2}) → {2, 3, 3}
+    // evenOdd({2, 2, 2}) → {2, 2, 2}
+
+    public int[] evenOdd(int[] nums) {
+    	int[] newArr = new int[nums.length];
+    	int runner = 0;
+
+    	for(int i = 0; i < nums.length; i++){
+    		if(nums[i] % 2 == 0){
+    			newArr[i] = newArr[runner];
+    			newArr[runner] = nums[i];
+    			runner++;
+    		} else{
+    			newArr[i] = nums[i];
+    		}
+    	}
+    	return newArr;
+    }
+
+    // This is slightly more difficult version of the famous FizzBuzz problem which is sometimes given as a first problem for job interviews. (See also: FizzBuzz Code.) Consider the series of numbers beginning at start and running up to but not including end, so for example start=1 and end=5 gives the series 1, 2, 3, 4. Return a new String[] array containing the string form of these numbers, except for multiples of 3, use "Fizz" instead of the number, for multiples of 5 use "Buzz", and for multiples of both 3 and 5 use "FizzBuzz". In Java, String.valueOf(xxx) will make the String form of an int or other type. This version is a little more complicated than the usual version since you have to allocate and index into an array instead of just printing, and we vary the start/end instead of just always doing 1..100.
+
+    // fizzBuzz(1, 6) → {"1", "2", "Fizz", "4", "Buzz"}
+    // fizzBuzz(1, 8) → {"1", "2", "Fizz", "4", "Buzz", "Fizz", "7"}
+    // fizzBuzz(1, 11) → {"1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz"}
+
+    public String[] fizzBuzz(int start, int end) {
+    	String[] newArr = new String[end - start];
+        for (int i = 0; start < end; i++) {
+        	if((start % (3*5)) == 0){
+                 newArr[i] = "FizzBuzz";
+            } else if((start % 3) == 0){
+                newArr[i] = "Fizz";
+            } else if((start % 5) == 0){
+                newArr[i] = "Buzz";
+            } else{
+                newArr[i] = String.valueOf(start);
+            }
+           start++;
+        }
+        return newArr;
     }
 
 
