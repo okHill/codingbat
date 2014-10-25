@@ -1,0 +1,156 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save-dev',
+1 verbose cli   'grunt-{commit,-m,modThree',
+1 verbose cli   'and',
+1 verbose cli   'haveThree',
+1 verbose cli   'solved}' ]
+2 info using npm@2.1.5
+3 info using node@v0.10.32
+4 verbose node symlink /usr/local/bin/node
+5 silly cache add args [ 'grunt-{commit,-m,modThree', null ]
+6 verbose cache add spec grunt-{commit,-m,modThree
+7 silly cache add args [ 'and', null ]
+8 verbose cache add spec and
+9 silly cache add args [ 'haveThree', null ]
+10 verbose cache add spec haveThree
+11 silly cache add args [ 'solved}', null ]
+12 verbose cache add spec solved}
+13 silly cache add parsed spec { raw: 'grunt-{commit,-m,modThree',
+13 silly cache add   scope: null,
+13 silly cache add   name: null,
+13 silly cache add   rawSpec: 'grunt-{commit,-m,modThree',
+13 silly cache add   spec: '/Users/anne/CodeBank/codingbat/grunt-{commit,-m,modThree',
+13 silly cache add   type: 'local' }
+14 silly cache add parsed spec { raw: 'and',
+14 silly cache add   scope: null,
+14 silly cache add   name: 'and',
+14 silly cache add   rawSpec: '',
+14 silly cache add   spec: '*',
+14 silly cache add   type: 'range' }
+15 verbose addNamed and@*
+16 silly addNamed semver.valid null
+17 silly addNamed semver.validRange *
+18 silly addNameRange { name: 'and', range: '*', hasData: false }
+19 verbose mapToRegistry name and
+20 verbose mapToRegistry uri https://registry.npmjs.org/and
+21 verbose addNameRange registry:https://registry.npmjs.org/and not in flight; fetching
+22 silly cache add parsed spec { raw: 'haveThree',
+22 silly cache add   scope: null,
+22 silly cache add   name: 'haveThree',
+22 silly cache add   rawSpec: '',
+22 silly cache add   spec: '*',
+22 silly cache add   type: 'range' }
+23 verbose addNamed haveThree@*
+24 silly addNamed semver.valid null
+25 silly addNamed semver.validRange *
+26 silly addNameRange { name: 'haveThree', range: '*', hasData: false }
+27 verbose mapToRegistry name haveThree
+28 verbose mapToRegistry uri https://registry.npmjs.org/haveThree
+29 verbose addNameRange registry:https://registry.npmjs.org/haveThree not in flight; fetching
+30 silly cache add parsed spec { raw: 'solved}',
+30 silly cache add   scope: null,
+30 silly cache add   name: null,
+30 silly cache add   rawSpec: 'solved}',
+30 silly cache add   spec: '/Users/anne/CodeBank/codingbat/solved}',
+30 silly cache add   type: 'local' }
+31 error addLocal Could not install /Users/anne/CodeBank/codingbat/grunt-{commit,-m,modThree
+32 verbose request on initialization, where is /and
+33 verbose request after pass 1, where is /and
+34 verbose request url raw /and
+35 verbose request resolving registry [ 'https://registry.npmjs.org/', './and' ]
+36 verbose request after pass 2, where is https://registry.npmjs.org/and
+37 verbose request no auth needed
+38 info attempt registry request try #1 at 13:17:33
+39 verbose request id b5a5e4e288fdb678
+40 http request GET https://registry.npmjs.org/and
+41 verbose request on initialization, where is /haveThree
+42 verbose request after pass 1, where is /haveThree
+43 verbose request url raw /haveThree
+44 verbose request resolving registry [ 'https://registry.npmjs.org/', './haveThree' ]
+45 verbose request after pass 2, where is https://registry.npmjs.org/haveThree
+46 verbose request no auth needed
+47 info attempt registry request try #1 at 13:17:33
+48 http request GET https://registry.npmjs.org/haveThree
+49 error addLocal Could not install /Users/anne/CodeBank/codingbat/solved}
+50 http 404 https://registry.npmjs.org/haveThree
+51 verbose headers { date: 'Fri, 24 Oct 2014 18:17:33 GMT',
+51 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+51 verbose headers   'content-type': 'application/json',
+51 verbose headers   'cache-control': 'max-age=0',
+51 verbose headers   'content-length': '52',
+51 verbose headers   'accept-ranges': 'bytes',
+51 verbose headers   via: '1.1 varnish',
+51 verbose headers   age: '0',
+51 verbose headers   'x-served-by': 'cache-jfk1028-JFK',
+51 verbose headers   'x-cache': 'MISS',
+51 verbose headers   'x-cache-hits': '0',
+51 verbose headers   'x-timer': 'S1414174653.572962,VS0,VE16',
+51 verbose headers   'keep-alive': 'timeout=10, max=50',
+51 verbose headers   connection: 'Keep-Alive' }
+52 silly registry.get cb [ 404,
+52 silly registry.get   { date: 'Fri, 24 Oct 2014 18:17:33 GMT',
+52 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+52 silly registry.get     'content-type': 'application/json',
+52 silly registry.get     'cache-control': 'max-age=0',
+52 silly registry.get     'content-length': '52',
+52 silly registry.get     'accept-ranges': 'bytes',
+52 silly registry.get     via: '1.1 varnish',
+52 silly registry.get     age: '0',
+52 silly registry.get     'x-served-by': 'cache-jfk1028-JFK',
+52 silly registry.get     'x-cache': 'MISS',
+52 silly registry.get     'x-cache-hits': '0',
+52 silly registry.get     'x-timer': 'S1414174653.572962,VS0,VE16',
+52 silly registry.get     'keep-alive': 'timeout=10, max=50',
+52 silly registry.get     connection: 'Keep-Alive' } ]
+53 http 200 https://registry.npmjs.org/and
+54 silly registry.get cb [ 200,
+54 silly registry.get   { date: 'Fri, 24 Oct 2014 18:17:33 GMT',
+54 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+54 silly registry.get     etag: '"89506AJ7WZ79S2M4UHHE47RGB"',
+54 silly registry.get     'content-type': 'application/json',
+54 silly registry.get     'cache-control': 'max-age=60',
+54 silly registry.get     'content-length': '1849',
+54 silly registry.get     'accept-ranges': 'bytes',
+54 silly registry.get     via: '1.1 varnish',
+54 silly registry.get     age: '0',
+54 silly registry.get     'x-served-by': 'cache-jfk1021-JFK',
+54 silly registry.get     'x-cache': 'MISS',
+54 silly registry.get     'x-cache-hits': '0',
+54 silly registry.get     'x-timer': 'S1414174653.587618,VS0,VE84',
+54 silly registry.get     vary: 'Accept',
+54 silly registry.get     'keep-alive': 'timeout=10, max=50',
+54 silly registry.get     connection: 'Keep-Alive' } ]
+55 silly addNameRange number 2 { name: 'and', range: '*', hasData: true }
+56 silly addNameRange versions [ 'and', [ '0.0.0' ] ]
+57 verbose addNamed and@0.0.0
+58 silly addNamed semver.valid 0.0.0
+59 silly addNamed semver.validRange 0.0.0
+60 verbose addRemoteTarball https://registry.npmjs.org/and/-/and-0.0.0.tgz not in flight; adding
+61 verbose addRemoteTarball [ 'https://registry.npmjs.org/and/-/and-0.0.0.tgz',
+61 verbose addRemoteTarball   'd3332919150592241005a88ffc4e92de79ebea53' ]
+62 info retry fetch attempt 1 at 13:17:33
+63 info attempt registry request try #1 at 13:17:33
+64 http fetch GET https://registry.npmjs.org/and/-/and-0.0.0.tgz
+65 http fetch 200 https://registry.npmjs.org/and/-/and-0.0.0.tgz
+66 silly fetchAndShaCheck shasum d3332919150592241005a88ffc4e92de79ebea53
+67 verbose addTmpTarball /var/folders/vv/ksmk5dgn2z55gcqtt95vjk3h0000gn/T/npm-6477-c67baf5c/registry.npmjs.org/and/-/and-0.0.0.tgz not in flight; adding
+68 verbose addTmpTarball already have metadata; skipping unpack for and@0.0.0
+69 silly cache afterAdd and@0.0.0
+70 verbose afterAdd /Users/anne/.npm/and/0.0.0/package/package.json not in flight; writing
+71 verbose afterAdd /Users/anne/.npm/and/0.0.0/package/package.json written
+72 verbose stack Error: ENOENT, open '/Users/anne/CodeBank/codingbat/grunt-{commit,-m,modThree'
+73 verbose cwd /Users/anne/CodeBank/codingbat
+74 error Darwin 14.0.0
+75 error argv "node" "/usr/local/bin/npm" "install" "--save-dev" "grunt-{commit,-m,modThree" "and" "haveThree" "solved}"
+76 error node v0.10.32
+77 error npm  v2.1.5
+78 error path /Users/anne/CodeBank/codingbat/grunt-{commit,-m,modThree
+79 error code ENOENT
+80 error errno 34
+81 error ENOENT, open '/Users/anne/CodeBank/codingbat/grunt-{commit,-m,modThree'
+82 error If you need help, you may report this error at:
+82 error     <http://github.com/npm/npm/issues>
+83 verbose exit [ 34, true ]
